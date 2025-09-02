@@ -1,19 +1,10 @@
 {
   "server": {
     "port": 8080,
-    "cors": {
-      "origins": ["*"]
-    }
+    "cors": { "origins": ["*"] }
   },
   "security": {
-    "rateLimit": {
-      "windowMs": 60000,
-      "max": 60
-    }
-  },
-  "cache": {
-    "max": 500,
-    "ttlMs": 600000
+    "rateLimit": { "windowMs": 60000, "max": 60 }
   },
   "qr": {
     "default": {

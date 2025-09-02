@@ -4,6 +4,8 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import pinoHttp from "pino-http";
 import config from "config";
+import apiRouter from "./routes";
+import { errorHandler } from "./middlewares/errorHandler";
 
 const app = express();
 app.use(express.json({ limit: "256kb" }));
@@ -22,9 +24,12 @@ app.use(rateLimit({
   legacyHeaders: false
 }));
 
-app.get("/health", (_req, res) => {
-  res.json({ status: "ok" });
-});
+app.get("/health", (_req, res) => res.json({ status: "ok" }));
+
+app.use("/api", apiRouter);
+
+// Error handler JSON
+app.use(errorHandler);
 
 const port = Number(process.env.PORT ?? config.get<number>("server.port"));
 app.listen(port, () => {
