@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getQr, postQr } from "../controllers/qr.controller";
+import { getQr, postQr } from "../controllers/qr.controller.js";
 
 const router = Router();
 

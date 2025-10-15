@@ -4,7 +4,7 @@ import cors from "cors";
 import rateLimit from "express-rate-limit";
 import pinoHttp from "pino-http";
 import config from "config";
-import apiRouter from "./routes";
+import apiRouter from "./routes/index.js";
 import { errorHandler } from "./middlewares/errorHandler";
 
 const app = express();
@@ -12,7 +12,8 @@ app.use(express.json({ limit: "256kb" }));
 app.use(helmet());
 
 const corsCfg = config.get<{ origins: string[] }>("server.cors");
-app.use(cors({ origin: corsCfg.origins }));
+// app.use(cors({ origin: corsCfg.origins }));
+app.use(cors({ origin: "*" }));
 
 app.use(pinoHttp());
 
