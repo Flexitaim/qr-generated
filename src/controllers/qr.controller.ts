@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import config from "config";
-import { qrQuerySchema, qrBodySchema } from "../validations/qr.schema";
-import { generateQR } from "../services/qr.service";
+import { qrQuerySchema, qrBodySchema } from "../validations/qr.schema.js";
+import { generateQR } from "../services/qr.service.js";
 
 const defaults = config.get<any>("qr.default");
 

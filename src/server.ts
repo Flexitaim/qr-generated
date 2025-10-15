@@ -5,7 +5,7 @@ import rateLimit from "express-rate-limit";
 import pinoHttp from "pino-http";
 import config from "config";
 import apiRouter from "./routes/index.js";
-import { errorHandler } from "./middlewares/errorHandler";
+import { errorHandler } from "./middlewares/errorHandler.js";
 
 const app = express();
 app.use(express.json({ limit: "256kb" }));
