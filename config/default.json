@@ -1,17 +1,12 @@
 {
-  "server": {
-    "port": 8080,
-    "cors": { "origins": ["*"] }
-  },
-  "security": {
-    "rateLimit": { "windowMs": 60000, "max": 60 }
-  },
+  "server": { "port": 8080, "cors": { "origins": ["*"] } },
+  "security": { "rateLimit": { "windowMs": 60000, "max": 60 } },
   "qr": {
     "default": {
-      "format": "png",
+      "format": "svg",         
       "size": 512,
-      "margin": 2,
-      "eccLevel": "M",
+      "margin": 4,             
+      "eccLevel": "Q",      
       "dark": "#000000",
       "light": "#ffffff"
     }
